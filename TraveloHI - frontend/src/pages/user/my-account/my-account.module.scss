@@ -1,0 +1,107 @@
+.profile_container {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  .pfp {
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 15rem;
+  }
+  .file_container {
+    background-color: $primary-color;
+    padding: 0.5rem 0.5rem;
+    color: $white;
+    border-radius: 0.5rem;
+    width: 30%;
+    transition: 0.25s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($primary-color, 15%);
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .pfp_label {
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-align: center;
+      line-height: 2rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+
+.split_container {
+  width: 100%;
+  display: flex;
+  // justify-content: space-between;
+  gap: 1rem;
+}
+
+.field_container {
+  width: 100%;
+}
+
+// .field {
+  // width: calc(100% - 1rem);
+// }
+
+// .button_container{
+//     display: flex;
+//     justify-content: flex-end;
+
+// }
+
+.button {
+  width: 100%;
+  // background-color: var(--body_primary_color);
+
+  // &:hover {
+  //   background-color: darken($primary-color, 15%);
+  // }
+}
+
+.button_loading {
+  width: 100%;
+  background-color: var(--body_hover);
+
+  &:hover {
+    background-color: var(--body_hover);
+  }
+}
+
+.newsletter_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #d1d3d1;
+  transition: 0.25s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: $primary-color;
+}
+
+.component_label {
+  color: var(--body_color);
+  font-family: MuseoSans;
+  font-weight: 500;
+}

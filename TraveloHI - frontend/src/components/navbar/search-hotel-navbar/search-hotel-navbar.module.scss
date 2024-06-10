@@ -1,0 +1,89 @@
+.extra_container {
+    background: rgb(8, 46, 131);
+    background: linear-gradient(
+      159deg,
+      var(--body_first_gradient) 0%,
+      var(--body_second_gradient) 100%
+    );
+    padding: 0.5rem 6rem;
+
+    .form_suggestion_container {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .suggestion_container {
+      position: absolute;
+      width: 100%;
+      max-height: 20rem;
+      margin-top: 3rem;
+      padding: 0;
+      background-color: white;
+      color: black;
+      box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .result {
+        width: calc(100% - 2rem);
+        padding: 0.5rem 1rem;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--body_gray);
+        }
+
+        .side {
+          color: var(--body_primary_color);
+          padding: 0.25rem 0.5rem;
+          border: 1px solid var(--body_primary_color);
+          font-size: 0.75rem;
+          font-weight: 300;
+          border-radius: 0.75rem;
+        }
+      }
+    }
+
+    .search_container {
+      display: flex;
+      width: 100%;
+      box-sizing: border-box;
+      gap: 1rem;
+
+      .field {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        outline: none;
+        border: none;
+        color: var(--body_white);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(8.5px);
+        -webkit-backdrop-filter: blur(8.5px);
+        border-radius: 0.45rem;
+        box-sizing: border-box;
+
+        &::placeholder {
+          color: var(--body_white);
+        }
+      }
+      .button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        background-color: var(--body_white);
+        // mix-blend-mode: multiply;
+        color: #2c5cb2;
+
+        // &:hover{
+        //   background-color: darken(#ffffff, 0.15);
+        // }
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--body_secondary_color);
+  font-size: 0.9rem;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--body_secondary_color); 
+    margin: 0 0.5rem;
+  }
+}
+
+.full::before,
+.full::after {
+  display: none;
+}
+
+.full {
+  border-bottom: 0.5px solid var(--body_secondary_color);
+  margin: 0 0.5rem;
+}

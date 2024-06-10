@@ -1,0 +1,52 @@
+.snackbar {
+  position: fixed;
+  
+  z-index: 1003;
+  width: 50vw;
+  height: fit-content;
+  border-radius: 1rem;
+  display: flex;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%, 100%);
+  text-align: justify;
+  padding: 1rem 2rem;
+  visibility: hidden;
+  color: $white;
+}
+
+.error{
+  background-color: var(--body_red);
+}
+
+.success{
+  background-color: var(--body_green);
+}
+
+.show {
+  visibility: visible;
+  transform: translate(-50%, -20%);
+  animation: slideIn 0.25s ease-in, slideOut 0.25s ease-in 2.8s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -20%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translate(-50%, -20%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,21 @@
+.split_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .field_container {
+    width: 100%;
+  }
+}
+
+.field {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checklist_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

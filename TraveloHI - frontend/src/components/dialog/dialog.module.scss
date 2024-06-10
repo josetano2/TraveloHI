@@ -1,0 +1,43 @@
+.main_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  background: rgba(0, 0, 0, 0.399);
+  display: flex;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog_container {
+  background-color: var(--body_contrast);
+  width: 30%;
+  height: fit-content;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1001;
+  display: flex;
+  // margin-top: 20rem;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+  box-sizing: border-box;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

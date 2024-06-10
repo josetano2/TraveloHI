@@ -1,0 +1,74 @@
+.main_container {
+  //   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+
+  .image_container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+    .promo_image {
+  //     width: 29.5vw;
+  // height: 17rem;
+      object-fit: cover;
+      box-sizing: border-box;
+      z-index: 1;
+      border-radius: 1rem;
+    }
+    .darken {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      box-sizing: border-box;
+      z-index: 2;
+      border-radius: 1rem;
+    }
+    .text_container {
+      position: absolute;
+      display: flex;
+      z-index: 3;
+      padding: 1.5rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+
+      .main_text_container {
+        display: flex;
+        gap: 0.5rem;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+      }
+
+      .date {
+        color: #ffffffdc;
+      }
+    }
+  }
+}
+
+.one_promo {
+  width: 90vw;
+  height: 30rem;
+}
+
+.two_promos {
+  width: 44.5vw;
+  height: 22rem;
+}
+
+.full_promos {
+  width: 29.5vw;
+  height: 17rem;
+}

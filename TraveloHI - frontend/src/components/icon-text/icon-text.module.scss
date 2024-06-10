@@ -1,0 +1,10 @@
+.icon_text_container {
+    display: flex;
+    align-items: center;
+    margin-top: 0.25rem;
+    gap: 1rem;
+
+    > svg {
+      margin: 0;
+    }
+  }

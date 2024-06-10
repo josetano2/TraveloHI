@@ -1,0 +1,13 @@
+.toggle{
+    display: flex;
+    background: none;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    align-items: center;
+
+    &:hover{
+        background-color: rgba(128, 128, 128, 0.15);
+    }
+}

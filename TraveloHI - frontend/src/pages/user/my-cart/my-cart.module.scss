@@ -1,0 +1,67 @@
+.flight_container {
+  display: flex;
+  gap: 1rem;
+}
+
+.flex_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.combo_box {
+  width: 100%;
+  padding: 0.75rem 0.5rem;
+  border: 0;
+  outline: 1px solid var(--body_secondary_color);
+  border-radius: 0.25rem;
+  font-family: MuseoSans;
+  font-size: 1rem;
+  transition: outline 0.3s ease;
+  background-color: transparent;
+  color: var(--body_color);
+  appearance: none;
+
+  // arrow
+  background-image: url("../../../assets/svg/drop_arrow.svg");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+
+  &:focus {
+    outline: 1px solid var(--body_primary_color);
+  }
+
+  &:active {
+    outline: 1px solid var(--body_primary_color);
+  }
+}
+
+.height {
+  height: 60vh;
+}
+.button {
+  width: 25%;
+}
+.blue_button {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 15%);
+  }
+}
+
+.split_container {
+  width: 100%;
+  display: flex;
+  // justify-content: space-between;
+  gap: 1rem;
+
+  .field_container {
+    width: 100%;
+  }
+}
+
+.height {
+  min-height: 55.2vh;
+}

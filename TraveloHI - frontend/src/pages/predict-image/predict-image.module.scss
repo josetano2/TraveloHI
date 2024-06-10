@@ -1,0 +1,45 @@
+.main_container {
+  padding-top: 5rem;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--body_color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .predict_container {
+    display: flex;
+    gap: 1rem;
+    // align-items: center;
+    // justify-content: center;
+
+    .file_container {
+      background-color: $primary-color;
+      padding: 0.5rem 0.5rem;
+      color: $white;
+      border-radius: 0.5rem;
+      width: 100%;
+      transition: 0.25s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 15%);
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .pfp_label {
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-align: center;
+        line-height: 2rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+}

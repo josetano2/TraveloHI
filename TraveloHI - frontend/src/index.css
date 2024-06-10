@@ -1,0 +1,133 @@
+@font-face {
+  font-family: MuseoSans;
+  src: url("./assets/font/MuseoSans_300.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MuseoSans;
+  src: url("./assets/font/MuseoSans_500.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: MuseoSans;
+  src: url("./assets/font/MuseoSans_700.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  font-family: MuseoSans;
+  line-height: 1.5;
+  font-weight: 500;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --body_primary_color: #1ba0e2;
+
+  --body_red: #ff5c5c;
+  --body_green: #5cd14a;
+  --body_gray: #cdd0d1;
+  --body_white: #ffffff;
+  --body_black: #000000;
+
+  --body_background: #f7f9fa;
+  --body_color: #000000;
+  --body_secondary_color: #808080;
+  --body_contrast: #ffffff;
+  --body_hover: #d5d5d5;
+
+  --body_first_gradient: #082e83;
+  --body_second_gradient: #68afff;
+
+  --body_detail_first_gradient: #c4ecfc;
+  --body_detail_second_gradient: #d8f4fc;
+}
+
+[data-theme="dark"] {
+  --body_background: #181818; 
+  --body_color: #ffffff;
+  --body_secondary_color: #303030;
+  --body_contrast: #000000;
+  --body_hover: #747474;
+
+  --body_first_gradient: #092259;
+  --body_second_gradient: #497ab3;
+  
+  --body_detail_first_gradient: #14191b;
+  --body_detail_second_gradient: #0b556c;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  background-color: var(--body_background);
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* *{
+  border: 0.1px solid red;
+} */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+option{
+  background-color: var(--body_background);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--body_hover);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--body_primary_color);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .g-recaptcha {
+    transform: scale(0.77);
+    transform-origin: 0 0;
+  }
+}

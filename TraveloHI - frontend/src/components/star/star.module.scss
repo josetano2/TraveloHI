@@ -1,0 +1,19 @@
+.star{
+    object-fit: cover;
+}
+
+.big{
+    width: 1.5rem;
+}
+
+.small{
+    width: 0.75rem;
+}
+
+.star_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}

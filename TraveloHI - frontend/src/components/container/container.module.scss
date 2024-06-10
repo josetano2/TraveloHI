@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--body_contrast);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 16px rgba(0 , 0, 0, 0.05);
+  // border: 1px solid var(--body_secona)
+  gap: 0.5rem;
+  box-sizing: border-box;
+}

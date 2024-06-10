@@ -1,0 +1,55 @@
+.form_container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.split_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .field_container {
+    width: 100%;
+  }
+}
+
+.file_container {
+  background-color: $primary-color;
+  padding: 0.5rem 0.5rem;
+  color: $white;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: 0.25s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: darken($primary-color, 15%);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .pfp_label {
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.active{
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+  box-sizing: border-box;
+}

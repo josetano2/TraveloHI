@@ -1,0 +1,188 @@
+.main_container {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+
+  .scrolled {
+    background: var(--body_background);
+    transition: background 0.3s ease-in-out;
+  }
+
+  .static {
+    background: linear-gradient(
+      180deg,
+      var(--body_background) 0%,
+      rgba(88, 88, 88, 0) 100%
+    );
+    transition: background 0.3s ease-in-out;
+  }
+
+  .navbar_container {
+    width: calc(100% - 1rem);
+    padding: 0.25rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar_left_container {
+      margin-left: 4rem;
+      flex: 1;
+
+      .logo {
+        object-fit: cover;
+        width: 11rem;
+      }
+    }
+
+    .navbar_right_container {
+      margin-right: 4rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex: 2;
+      justify-content: flex-end;
+
+      .field {
+        border-radius: 1rem;
+        outline: 2px solid var(--body_secondary_color);
+        padding: 0.5rem 1rem;
+        width: 35%;
+        background-color: transparent;
+        // transition: 0.5s ease-in-out;
+
+        &:focus {
+          outline: 2px solid var(--body_primary_color);
+          // width: 35%;
+        }
+
+        &:active {
+          outline: 2px solid var(--body_primary_color);
+          // width: 35%;
+        }
+      }
+
+      .navbar_button {
+        height: fit-content;
+        background-color: transparent;
+        color: var(--body_color);
+        font-weight: 700;
+        font-size: 1rem;
+        transition: 0.25s ease;
+
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.15);
+        }
+      }
+
+      .navbar_small_container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: fit-content;
+        padding: 0.75rem 0.5rem;
+        border-radius: 0.5rem;
+        gap: 0.5rem;
+
+        .flag {
+          width: 1rem;
+          height: 1rem;
+          border-radius: 2rem;
+          border: 1px solid var(--body_secondary_color);
+        }
+        .language_button {
+          height: fit-content;
+          background-color: transparent;
+          color: var(--body_color);
+          font-weight: 700;
+          font-size: 1rem;
+          transition: 0.25s ease;
+          padding: 0;
+
+          //   &:hover {
+          //     background-color: rgba(128, 128, 128, 0.15);
+          //   }
+        }
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.15);
+        }
+      }
+
+      .profile_container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .sub_profile_container {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: 0.25s ease;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.15);
+          }
+        }
+        .pfp {
+          width: 2rem;
+          height: 2rem;
+          object-fit: cover;
+          border-radius: 5rem;
+        }
+        .profile_name {
+          font-family: MuseoSans;
+          font-weight: 700;
+          font-size: 1rem;
+          color: var(--body_color);
+          cursor: pointer;
+        }
+
+        .logout_button {
+          height: fit-content;
+          background-color: transparent;
+          color: var(--body_red);
+          font-weight: 700;
+          font-size: 1rem;
+          transition: 0.25s ease;
+          padding: 0.5rem 1rem;
+
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.15);
+          }
+        }
+
+        .login_button {
+          height: fit-content;
+          // background-color: var(--body_background);
+          background-color: transparent;
+          border: 1px solid var(--body_color);
+          color: var(--body_color);
+          font-weight: 700;
+          font-size: 1rem;
+          transition: 0.25s ease;
+          padding: 0.5rem 1rem;
+
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.15);
+          }
+        }
+
+        .register_button {
+          height: fit-content;
+          background-color: var(--body_primary_color);
+          color: $white;
+          font-weight: 700;
+          font-size: 1rem;
+          transition: 0.25s ease;
+          padding: 0.5rem 1rem;
+
+          &:hover {
+            background-color: darken($primary-color, 15%);
+          }
+        }
+      }
+    }
+  }
+}

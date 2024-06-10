@@ -1,0 +1,14 @@
+.split_container {
+  width: 100%;
+  display: flex;
+  // justify-content: space-between;
+  gap: 1rem;
+
+  .field_container {
+    width: 100%;
+  }
+}
+
+.height {
+  min-height: 55.2vh;
+}

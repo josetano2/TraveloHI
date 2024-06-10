@@ -1,0 +1,14 @@
+.newsletter_container{
+  // width: 100%;
+  box-sizing: border-box;
+}
+
+.button_loading {
+  width: 100%;
+  cursor: auto;
+  background-color: var(--body_hover);
+
+  &:hover {
+    background-color: var(--body_hover);
+  }
+}

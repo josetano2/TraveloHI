@@ -1,0 +1,45 @@
+.main_container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+
+  .seat_container {
+    display: flex;
+    width: 35rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .seat {
+    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--body_white);
+    
+    transition: 0.25s ease-in-out;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+  }
+}
+
+.available {
+  background-color: #1c2930;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #425963;
+  cursor: pointer;
+}
+
+.not_available {
+  background-color: #ff5c5c;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: #d34b4b;
+  }
+}

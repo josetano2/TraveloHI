@@ -1,0 +1,18 @@
+.checkbox_container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  input[type="checkbox"] {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: #d1d3d1;
+    transition: 0.25s ease;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: $primary-color;
+  }

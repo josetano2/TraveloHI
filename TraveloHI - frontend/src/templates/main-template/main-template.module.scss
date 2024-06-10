@@ -1,0 +1,35 @@
+.main_container{
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    width: 100vw;
+    height: 100%;
+    color: var(--body_color);
+    display: flex;
+    overflow-x: hidden;
+    background-color: var(--body_background_color);
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2930;
+    padding: 3rem 15rem;
+    align-items: flex-start;
+
+    .logo{
+        object-fit: cover;
+        width: 15rem;
+    }
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+.margin{
+    margin-top: 2.5rem;
+}
+

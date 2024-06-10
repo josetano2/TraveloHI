@@ -1,0 +1,33 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c2930;
+    padding: 3rem 10vw;
+    align-items: flex-start;
+
+    .logo{
+        object-fit: cover;
+        width: 15rem;
+    }
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+.margin{
+    margin-top: 2.5rem;
+}
+
+.text{
+    cursor: pointer;
+
+    &:hover{
+        text-decoration: underline;
+    }
+
+}
+

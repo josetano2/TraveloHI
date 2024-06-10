@@ -1,0 +1,21 @@
+.textfield {
+  padding: 0.75rem 0.5rem;
+  border: 0;
+  outline: 1px solid var(--body_secondary_color);
+  border-radius: 0.25rem;
+  font-family: MuseoSans;
+  font-size: 1rem;
+  transition: outline 0.3s ease;
+  background-color: transparent;
+  color: var(--body_color);
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 1px solid var(--body_primary_color);
+  }
+
+  &:active {
+    outline: 1px solid var(--body_primary_color);
+  }
+}

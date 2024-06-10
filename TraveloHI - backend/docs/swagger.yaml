@@ -1,0 +1,352 @@
+basePath: /
+definitions:
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  models.City:
+    properties:
+      country:
+        $ref: '#/definitions/models.Country'
+      countryID:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      name:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.Country:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      name:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.Facility:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      hotels:
+        items:
+          $ref: '#/definitions/models.Hotel'
+        type: array
+      id:
+        type: integer
+      name:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.Hotel:
+    properties:
+      address:
+        type: string
+      city:
+        $ref: '#/definitions/models.City'
+      cityID:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      description:
+        type: string
+      facilities:
+        items:
+          $ref: '#/definitions/models.Facility'
+        type: array
+      id:
+        type: integer
+      images:
+        items:
+          type: integer
+        type: array
+      name:
+        type: string
+      rating:
+        type: number
+      roomDetails:
+        items:
+          $ref: '#/definitions/models.RoomDetail'
+        type: array
+      updatedAt:
+        type: string
+    type: object
+  models.Promo:
+    properties:
+      code:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      endDate:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      percentage:
+        type: number
+      startDate:
+        type: string
+      updatedAt:
+        type: string
+      userPromo:
+        items:
+          $ref: '#/definitions/models.UserPromo'
+        type: array
+    type: object
+  models.RoomDetail:
+    properties:
+      bed:
+        type: string
+      capacity:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      guest:
+        type: integer
+      hotel:
+        $ref: '#/definitions/models.Hotel'
+      hotelID:
+        type: integer
+      id:
+        type: integer
+      images:
+        items:
+          type: integer
+        type: array
+      isBreakfast:
+        type: boolean
+      isFreeWifi:
+        type: boolean
+      isRefundable:
+        type: boolean
+      isReschedule:
+        type: boolean
+      isSmoking:
+        type: boolean
+      name:
+        type: string
+      price:
+        type: number
+      updatedAt:
+        type: string
+    type: object
+  models.User:
+    properties:
+      address:
+        type: string
+      answer:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      dob:
+        type: string
+      email:
+        type: string
+      firstName:
+        type: string
+      gender:
+        type: string
+      id:
+        type: integer
+      isBanned:
+        type: boolean
+      isLoggedIn:
+        type: boolean
+      lastName:
+        type: string
+      newsletter:
+        type: string
+      phoneNumber:
+        type: string
+      profilePicture:
+        type: string
+      question:
+        type: string
+      role:
+        type: string
+      updatedAt:
+        type: string
+      userPromo:
+        items:
+          $ref: '#/definitions/models.UserPromo'
+        type: array
+      walletAmount:
+        type: number
+    type: object
+  models.UserPromo:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      isUsed:
+        type: boolean
+      promo:
+        $ref: '#/definitions/models.Promo'
+      promoID:
+        type: integer
+      updatedAt:
+        type: string
+      user:
+        $ref: '#/definitions/models.User'
+      userID:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: TraveloHI API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: TraveloHI
+  version: "1.0"
+paths:
+  /api/ban_user:
+    put:
+      consumes:
+      - application/json
+      description: Ban or unban a user based on their ID
+      parameters:
+      - description: User ID
+        in: query
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User object showing updated ban status
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Invalid ID provided
+          schema:
+            type: string
+        "404":
+          description: User not found
+          schema:
+            type: string
+      summary: Ban User
+      tags:
+      - user
+  /api/facility:
+    get:
+      consumes:
+      - application/json
+      description: get list of facility
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Facility'
+            type: array
+      summary: Show facility
+      tags:
+      - facility
+  /api/question:
+    post:
+      consumes:
+      - application/json
+      description: get question based on user email
+      parameters:
+      - description: User Email
+        in: body
+        name: email
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Returns the user's question
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Email must be filled / Email is not in the right format
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: User not found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "405":
+          description: User is banned
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Show question
+      tags:
+      - question
+  /api/remove_hotel_from_cart:
+    delete:
+      consumes:
+      - application/json
+      description: Deletes a hotel from the user's cart based on the hotel cart ID
+      parameters:
+      - description: Hotel Cart ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'message: success'
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: 'message: Error deleting hotel'
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Remove Hotel from Cart
+      tags:
+      - cart
+swagger: "2.0"

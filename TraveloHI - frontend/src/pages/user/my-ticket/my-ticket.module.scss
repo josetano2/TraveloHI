@@ -1,0 +1,66 @@
+.height {
+  min-height: 56vh;
+}
+
+.navigation_tab {
+  display: flex;
+  gap: 1rem;
+}
+
+.top_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field {
+  width: 40%;
+  border: none;
+  outline: 2px solid var(--body_color);
+  border-radius: 4rem;
+  padding: 1rem 1.5rem;
+
+  &:focus {
+    outline: 2px solid var(--body_primary_color);
+  }
+
+  &:active {
+    outline: 2px solid var(--body_primary_color);
+  }
+}
+
+.active {
+  background-color: transparent;
+  color: var(--body_black);
+  border: 0.5px solid transparent;
+  border-radius: 4rem;
+  width: 10rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: auto;
+  outline: 2px solid var(--body_color);
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.static {
+  background-color: transparent;
+  color: var(--body_color);
+  outline: 2px solid transparent;
+  border-radius: 4rem;
+  width: 8rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: transparent;
+    outline: 2px solid var(--body_color);
+  }
+}

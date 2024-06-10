@@ -1,0 +1,95 @@
+.main_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  
+
+  .room_detail_card_container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 1rem;
+
+    .image_container {
+      width: 30%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .big_image {
+        width: 100%;
+        max-height: 12rem;
+        box-sizing: border-box;
+        object-fit: cover;
+      }
+
+      .small_container {
+        width: calc(100% - 0.5rem);
+        box-sizing: border-box;
+        display: flex;
+        gap: 0.25rem;
+
+        .small_image {
+          width: calc(100% / 3);
+          object-fit: cover;
+        }
+      }
+    }
+
+    .info_container {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: none;
+
+      .divider {
+        width: 100%;
+        background-color: var(--body_hover);
+        height: 1px;
+        // margin: 0.75rem 0;
+      }
+
+      .split_container {
+        display: flex;
+        align-items: center;
+
+        .split_text {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          max-width: 33%;
+          overflow-wrap: break-word;
+        }
+      }
+
+      .bottom_container {
+        display: flex;
+
+
+        .flex_container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          flex: 1;
+          overflow-wrap: break-word;
+        }
+
+        .price_container{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          flex: 1;
+
+          .button_container{
+            box-sizing: border-box;
+            display: flex;
+            gap: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
