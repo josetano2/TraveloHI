@@ -2,7 +2,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 export const cld = new Cloudinary({
   cloud: { 
-    cloudName: import.meta.env.CLOUDINARY_CLOUD_NAME
+    cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
   }
 });
 
@@ -10,9 +10,9 @@ export async function uploadImage(file: File, onLoading: (loading: boolean) => v
   onLoading(true);
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", import.meta.env.CLOUDINARY_UPLOAD_PRESET as string);
+  formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET as string);
 
-  const response = await fetch(import.meta.env.CLOUDINARY_API_URL as string, {
+  const response = await fetch(import.meta.env.VITE_CLOUDINARY_API_URL as string, {
     method: "POST",
     body: formData,
   });
