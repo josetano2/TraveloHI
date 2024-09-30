@@ -83,6 +83,7 @@ export default function MyHistoryPage() {
       if (response.ok) {
         const res = await response.json();
         setCarts(res);
+        console.log(res);
       } else {
         const error = await response.json();
         handleSnackbar(error.message, SnackbarType.Error);
@@ -128,7 +129,7 @@ export default function MyHistoryPage() {
     if (user?.ID) {
       getAllHistory();
     }
-  }, [user?.ID]);
+  }, [user?.ID, loading]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -138,8 +139,6 @@ export default function MyHistoryPage() {
       clearInterval(interval);
     };
   }, []);
-
-
 
   const handleActive = (nav: string) => {
     setActive(nav);

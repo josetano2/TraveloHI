@@ -1,9 +1,12 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/swagger"
+	"github.com/joho/godotenv"
 	"github.com/josetano2/travelohi/controllers"
 	"github.com/josetano2/travelohi/database"
 	_ "github.com/josetano2/travelohi/docs"
@@ -22,6 +25,11 @@ import (
 // @host localhost:8080
 // @BasePath /
 func main() {
+
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
 	database.Connect()
 	seeders.Seeders()

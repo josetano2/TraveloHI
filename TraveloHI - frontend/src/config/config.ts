@@ -1,23 +1,21 @@
 import { Cloudinary } from "@cloudinary/url-gen";
 
-export const cld = new Cloudinary({ cloud: { cloudName: "dau03r7yn" } });
+export const cld = new Cloudinary({
+  cloud: { 
+    cloudName: import.meta.env.CLOUDINARY_CLOUD_NAME
+  }
+});
 
-export async function uploadImage(
-  file: File,
-  onLoading: (loading: boolean) => void
-) {
+export async function uploadImage(file: File, onLoading: (loading: boolean) => void) {
   onLoading(true);
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", "cdlo4fjr");
+  formData.append("upload_preset", import.meta.env.CLOUDINARY_UPLOAD_PRESET as string);
 
-  const response = await fetch(
-    `https://api.cloudinary.com/v1_1/dau03r7yn/image/upload`,
-    {
-      method: "POST",
-      body: formData,
-    }
-  );
+  const response = await fetch(import.meta.env.CLOUDINARY_API_URL as string, {
+    method: "POST",
+    body: formData,
+  });
 
   if (response.ok) {
     const data = await response.json();
