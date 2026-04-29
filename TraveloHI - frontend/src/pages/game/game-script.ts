@@ -12,8 +12,8 @@ import player_low_kick from "../../assets/game-asset/Player 1/Sprites/Attack2.pn
 import player_front_kick from "../../assets/game-asset/Player 1/Sprites/Attack1.png";
 
 import enemy_idle from "../../assets/game-asset/Player 2/Sprites/Idle.png";
-import { useUser } from "../../context/user-context";
 import { ILoggedUser } from "../../interfaces/user-interface";
+import { API_BASE_URL } from "../../config/config";
 
 let isDone = false;
 let rewardGiven = false;
@@ -158,7 +158,7 @@ export async function animate(canvas: HTMLCanvasElement, user: ILoggedUser) {
         // reward
         if (!rewardGiven) {
           const response = await fetch(
-            "http://localhost:8080/api/game_reward",
+            `${API_BASE_URL}/api/game_reward`,
             {
               method: "PUT",
               headers: { "Content-Type": "application/json" },

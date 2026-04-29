@@ -5,20 +5,17 @@ import UserTemplate from "../../../templates/user-template/user-template";
 import styles from "./my-ticket.module.scss";
 import {
   IActiveTickets,
-  ICart,
   IFlightCart,
   IHotelCart,
 } from "../../../interfaces/cart-interface";
 import Loading from "../../../components/loader/loader";
-import { RiPencilFill } from "react-icons/ri";
 import Button from "../../../components/button/button";
-import { colors } from "../../../components/colors";
 import Container from "../../../components/container/container";
-import { BUSINESS_CLASS_MULTIPLIER } from "../../flight-detail/flight-detail";
 import { LiaHotelSolid } from "react-icons/lia";
 import { MdFlight } from "react-icons/md";
 import Textfield from "../../../components/textfield/textfield";
 import debounce from "lodash.debounce";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function MyTicketPage() {
   const { user } = useUser();
@@ -28,7 +25,7 @@ export default function MyTicketPage() {
   const [search, setSearch] = useState("");
 
   const getAllActiveTicket = async () => {
-    const url = `http://localhost:8080/api/get_all_active_tickets/?id=${user?.ID}&search=${search}&active=${active}`;
+    const url = `${API_BASE_URL}/api/get_all_active_tickets/?id=${user?.ID}&search=${search}&active=${active}`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -119,8 +116,8 @@ export default function MyTicketPage() {
                   const checkOutFormat = new Date(hotel.CheckOutDate);
                   // const today = new Date();
                   //   const status = checkInFormat > today ? "Upcoming" : "Expired";
-                  let diff = checkOutFormat.getTime() - checkInFormat.getTime();
-                  let dayDiff = diff / (1000 * 3600 * 24);
+                  const diff = checkOutFormat.getTime() - checkInFormat.getTime();
+                  const dayDiff = diff / (1000 * 3600 * 24);
                   //   let price = dayDiff * hotel.RoomDetail.Price;
 
                   return (

@@ -12,6 +12,7 @@ import Loading from "../../../components/loader/loader";
 import Container from "../../../components/container/container";
 import { useSnackbar } from "../../../context/snackbar-context";
 import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function MyAccountPage() {
   const [id, setId] = useState("");
@@ -74,7 +75,7 @@ export default function MyAccountPage() {
   const handleSave = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/update_profile", {
+    const response = await fetch(`${API_BASE_URL}/api/update_profile`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { IChildren } from "../interfaces/children-interface";
 import { ILoggedUser } from "../interfaces/user-interface";
+import { API_BASE_URL } from "../config/config";
 
 interface IUserContext {
   user: ILoggedUser | null;
@@ -25,7 +26,7 @@ export function UserProvider({ children }: IChildren) {
     email: string,
     password: string
   ): Promise<boolean | undefined> {
-    const response = await fetch("http://localhost:8080/api/login", {
+    const response = await fetch(`${API_BASE_URL}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -37,7 +38,7 @@ export function UserProvider({ children }: IChildren) {
 
     // sukses
     if (response.status === 200) {
-      const userResponse = await fetch("http://localhost:8080/api/user", {
+      const userResponse = await fetch(`${API_BASE_URL}/api/user`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -57,7 +58,7 @@ export function UserProvider({ children }: IChildren) {
   const getUser = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/user", {
+      const response = await fetch(`${API_BASE_URL}/api/user`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -70,6 +71,7 @@ export function UserProvider({ children }: IChildren) {
         setLoading(false);
       }
     } catch (error) {
+      console.error("Error fetching user:", error);
     } finally {
       setLoading(false);
     }
@@ -78,7 +80,7 @@ export function UserProvider({ children }: IChildren) {
   async function logout() {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/logout", {
+      const response = await fetch(`${API_BASE_URL}/api/logout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -90,6 +92,7 @@ export function UserProvider({ children }: IChildren) {
         setUser(null);
       }
     } catch (error) {
+      console.error("Error during logout:", error);
     } finally {
       setLoading(false);
     }

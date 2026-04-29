@@ -10,6 +10,7 @@ import Button from "../../../components/button/button";
 import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
 import { useSnackbar } from "../../../context/snackbar-context";
 import { useUser } from "../../../context/user-context";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function MyCardsPage() {
   const [bankNames, setBankNames] = useState<string[]>([]);
@@ -29,7 +30,7 @@ export default function MyCardsPage() {
   const { user } = useUser();
 
   const getAllBanks = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_banks", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_banks`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -44,7 +45,7 @@ export default function MyCardsPage() {
   };
 
   const handleAddCreditCard = async () => {
-    const response = await fetch("http://localhost:8080/api/add_credit_card", {
+    const response = await fetch(`${API_BASE_URL}/api/add_credit_card`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

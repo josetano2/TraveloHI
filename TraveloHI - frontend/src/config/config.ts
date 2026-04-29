@@ -1,5 +1,9 @@
 import { Cloudinary } from "@cloudinary/url-gen";
 
+// API Configuration
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+export const PREDICT_API_URL = import.meta.env.VITE_PREDICT_API_URL || "http://localhost:5000";
+
 export const cld = new Cloudinary({
   cloud: { 
     cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME

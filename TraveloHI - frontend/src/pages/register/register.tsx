@@ -14,6 +14,7 @@ import { uploadImage } from "../../config/config";
 import Loading from "../../components/loader/loader";
 import { useSnackbar } from "../../context/snackbar-context";
 import { useUser } from "../../context/user-context";
+import { API_BASE_URL } from "../../config/config";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -84,7 +85,7 @@ export default function RegisterPage() {
       return;
     }
 
-    const response = await fetch("http://localhost:8080/api/register", {
+    const response = await fetch(`${API_BASE_URL}/api/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

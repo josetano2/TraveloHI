@@ -3,9 +3,9 @@ import { animate } from "./game-script";
 import styles from "./game.module.scss";
 import { useNavigate } from "react-router-dom";
 import bgm from "../../assets/game-asset/Game Asset/background music 1.mp3";
-import MainTemplate from "../../templates/main-template/main-template";
 import NavBar from "../../components/navbar/navbar";
 import { useUser } from "../../context/user-context";
+import { API_BASE_URL } from "../../config/config";
 
 export default function GamePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,7 +16,7 @@ export default function GamePage() {
 
   const validateUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/user", {
+      const response = await fetch(`${API_BASE_URL}/api/user`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

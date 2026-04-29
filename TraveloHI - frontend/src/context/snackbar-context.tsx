@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { IChildren } from "../interfaces/children-interface";
-import Snackbar, { SnackbarType } from "../components/snackbar/snackbar";
+import { SnackbarType } from "../components/snackbar/snackbar";
 
 interface ISnackbarContext {
   message: string;

@@ -9,6 +9,7 @@ import { IUser } from "../../../interfaces/user-interface";
 import Textfield from "../../../components/textfield/textfield";
 import { useSnackbar } from "../../../context/snackbar-context";
 import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminSendNewsletterPage() {
   const [title, setTitle] = useState("");
@@ -24,7 +25,7 @@ export default function AdminSendNewsletterPage() {
 
   const getAllSubscribedUsers = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/get_all_subscribed_users",
+      `${API_BASE_URL}/api/get_all_subscribed_users`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -38,7 +39,7 @@ export default function AdminSendNewsletterPage() {
   };
 
   const handleNewsletter = async () => {
-    const response = await fetch("http://localhost:8080/api/send_newsletter", {
+    const response = await fetch(`${API_BASE_URL}/api/send_newsletter`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

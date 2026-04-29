@@ -8,6 +8,7 @@ import { colors } from "../../../components/colors";
 import Textfield from "../../../components/textfield/textfield";
 import Button from "../../../components/button/button";
 import Checkbox from "../../../components/checkbox/checkbox";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminAddRoutePage() {
   const [airports, setAirports] = useState<IAirport[]>([]);
@@ -20,7 +21,7 @@ export default function AdminAddRoutePage() {
   const [selectedAirlines, setSelectedAirlines] = useState<number[]>([]);
 
   const getAllAirports = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_airports", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_airports`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -35,7 +36,7 @@ export default function AdminAddRoutePage() {
   };
 
   const getAllAirlines = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_airlines", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_airlines`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -59,7 +60,7 @@ export default function AdminAddRoutePage() {
 
   const handleSubmit = async () => {
     console.log(originAirportName);
-    const response = await fetch("http://localhost:8080/api/add_flight_route", {
+    const response = await fetch(`${API_BASE_URL}/api/add_flight_route`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

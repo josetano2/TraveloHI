@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { useFetch } from "../../../context/fetch-context";
 import styles from "./search-flight-navbar.module.scss";
 import Textfield from "../../textfield/textfield";
 import Button from "../../button/button";
-import { useLocation, useNavigate } from "react-router-dom";
 import debounce from "lodash.debounce";
 
 export default function SearchFlightNavbar() {

@@ -22,6 +22,7 @@ import Dialog from "../../../components/dialog/dialog";
 import Textarea from "../../../components/textarea/textarea";
 import Checkbox from "../../../components/checkbox/checkbox";
 import DefaultDropdown from "../../../components/default-dropdown/default-dropdown";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function MyHistoryPage() {
   const { user } = useUser();
@@ -73,7 +74,7 @@ export default function MyHistoryPage() {
     if (!user || !user.ID) {
       return;
     }
-    const url = `http://localhost:8080/api/get_all_history/?id=${user?.ID}&search=${search}&active=${active}&offset=${offset}&limit=${limit}`;
+    const url = `${API_BASE_URL}/api/get_all_history/?id=${user?.ID}&search=${search}&active=${active}&offset=${offset}&limit=${limit}`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -96,7 +97,7 @@ export default function MyHistoryPage() {
   };
 
   const handleSubmitReview = async () => {
-    const response = await fetch("http://localhost:8080/api/add_hotel_review", {
+    const response = await fetch(`${API_BASE_URL}/api/add_hotel_review`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -327,9 +328,9 @@ export default function MyHistoryPage() {
                     const today = new Date();
                     const status =
                       checkInFormat > today ? "Upcoming" : "Expired";
-                    let diff =
+                    const diff =
                       checkOutFormat.getTime() - checkInFormat.getTime();
-                    let dayDiff = diff / (1000 * 3600 * 24);
+                    const dayDiff = diff / (1000 * 3600 * 24);
                     //   let price = dayDiff * hotel.RoomDetail.Price;
 
                     return (

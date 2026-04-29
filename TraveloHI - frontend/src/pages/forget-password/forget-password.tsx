@@ -12,6 +12,7 @@ import { useUser } from "../../context/user-context";
 import Loading from "../../components/loader/loader";
 import { useSnackbar } from "../../context/snackbar-context";
 import Snackbar, { SnackbarType } from "../../components/snackbar/snackbar";
+import { API_BASE_URL } from "../../config/config";
 
 export default function ForgetPasswordPage() {
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ export default function ForgetPasswordPage() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/question", {
+    const response = await fetch(`${API_BASE_URL}/api/question`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +68,7 @@ export default function ForgetPasswordPage() {
   const handleAnswer = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/answer", {
+    const response = await fetch(`${API_BASE_URL}/api/answer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -90,7 +91,7 @@ export default function ForgetPasswordPage() {
   const handleChangePassword = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/change_password", {
+    const response = await fetch(`${API_BASE_URL}/api/change_password`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

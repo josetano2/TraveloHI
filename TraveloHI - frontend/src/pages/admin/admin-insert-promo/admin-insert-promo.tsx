@@ -11,6 +11,7 @@ import Loading from "../../../components/loader/loader";
 import Button from "../../../components/button/button";
 import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
 import { useSnackbar } from "../../../context/snackbar-context";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminInsertPromoPage() {
   const [code, setCode] = useState("PROMOCODE");
@@ -57,7 +58,7 @@ export default function AdminInsertPromoPage() {
   };
 
   const handleUpload = async () => {
-    const response = await fetch("http://localhost:8080/api/insert_promo", {
+    const response = await fetch(`${API_BASE_URL}/api/insert_promo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

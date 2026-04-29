@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AdminTemplate from "../../../templates/admin-template/admin-template";
 import Text from "../../../components/text/text";
 import styles from "./admin-add-airline-route.module.scss";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminAddAirlineRoutePage() {
   const [isSelected, setIsSelected] = useState(false);
@@ -13,7 +14,7 @@ export default function AdminAddAirlineRoutePage() {
 
   const getAllFlightRoutes = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/get_all_flight_routes",
+      `${API_BASE_URL}/api/get_all_flight_routes`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -28,7 +29,7 @@ export default function AdminAddAirlineRoutePage() {
 
   const getAllAirlines = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/get_all_airlines",
+      `${API_BASE_URL}/api/get_all_airlines`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

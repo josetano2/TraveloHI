@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { IChildren } from "../interfaces/children-interface";
+import { API_BASE_URL } from "../config/config";
 // import { ICity, ICountry } from "../interfaces/city-interface";
 
 interface IFetchContext {
@@ -33,7 +34,7 @@ export function FetchProvider({ children }: IChildren) {
   const getAllHotels = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/get_all_hotels", {
+      const response = await fetch(`${API_BASE_URL}/api/get_all_hotels`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -58,7 +59,7 @@ export function FetchProvider({ children }: IChildren) {
       return;
     }
     setLoading(true);
-    const url = `http://localhost:8080/api/search_suggestions/?search=${stuff}`;
+    const url = `${API_BASE_URL}/api/search_suggestions/?search=${stuff}`;
     try {
       const response = await fetch(url, {
         method: "GET",

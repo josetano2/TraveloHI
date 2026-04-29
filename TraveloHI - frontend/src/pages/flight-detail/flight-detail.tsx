@@ -12,6 +12,7 @@ import Button from "../../components/button/button";
 import { useUser } from "../../context/user-context";
 import Snackbar, { SnackbarType } from "../../components/snackbar/snackbar";
 import { useSnackbar } from "../../context/snackbar-context";
+import { API_BASE_URL } from "../../config/config";
 
 interface FlightDetail {
   Flight: IFlight;
@@ -70,7 +71,7 @@ export default function FlightDetailPage() {
 
   const getFlightDetail = async (flightID: number) => {
     setLoading(true);
-    const url = `http://localhost:8080/api/get_flight_detail/?id=${flightID}`;
+    const url = `${API_BASE_URL}/api/get_flight_detail/?id=${flightID}`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -100,7 +101,7 @@ export default function FlightDetailPage() {
 
   const handleAddToCart = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/add_flight_to_cart",
+      `${API_BASE_URL}/api/add_flight_to_cart`,
       {
         method: "POST",
         headers: {

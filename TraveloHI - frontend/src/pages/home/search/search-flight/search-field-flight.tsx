@@ -5,6 +5,7 @@ import Button from "../../../../components/button/button";
 import { IoSearch } from "react-icons/io5";
 import debounce from "lodash.debounce";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../../../config/config";
 
 export default function SearchFieldFlight() {
   const [active, setActive] = useState("Origin");
@@ -40,7 +41,7 @@ export default function SearchFieldFlight() {
       return;
     }
     setLoading(true);
-    const url = `http://localhost:8080/api/search_flight_suggestions/?search=${stuff}`;
+    const url = `${API_BASE_URL}/api/search_flight_suggestions/?search=${stuff}`;
     try {
       const response = await fetch(url, {
         method: "GET",

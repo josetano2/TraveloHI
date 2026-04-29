@@ -5,11 +5,11 @@ import styles from "./admin-hotel.module.scss";
 import Textarea from "../../../components/textarea/textarea";
 import Button from "../../../components/button/button";
 import Text from "../../../components/text/text";
-import Loading from "../../../components/loader/loader";
 import { uploadImage } from "../../../config/config";
 import Checkbox from "../../../components/checkbox/checkbox";
 import { useSnackbar } from "../../../context/snackbar-context";
 import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminHotelPage() {
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ export default function AdminHotelPage() {
   const getCities = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/city", {
+      const response = await fetch(`${API_BASE_URL}/api/city`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -52,7 +52,7 @@ export default function AdminHotelPage() {
   const getFacilities = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/facility", {
+      const response = await fetch(`${API_BASE_URL}/api/facility`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -111,7 +111,7 @@ export default function AdminHotelPage() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/add_hotel", {
+    const response = await fetch(`${API_BASE_URL}/api/add_hotel`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

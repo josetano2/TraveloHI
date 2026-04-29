@@ -17,6 +17,7 @@ import Textfield from "../../components/textfield/textfield";
 import Snackbar, { SnackbarType } from "../../components/snackbar/snackbar";
 import { useSnackbar } from "../../context/snackbar-context";
 import { useUser } from "../../context/user-context";
+import { API_BASE_URL } from "../../config/config";
 
 export default function HotelDetailPage() {
   const { search } = useLocation();
@@ -39,7 +40,7 @@ export default function HotelDetailPage() {
 
   const handleAddToCart = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/add_hotel_to_cart",
+      `${API_BASE_URL}/api/add_hotel_to_cart`,
       {
         method: "POST",
         headers: {
@@ -91,19 +92,19 @@ export default function HotelDetailPage() {
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
 
-    let diff = checkOut.getTime() - checkIn.getTime();
+    const diff = checkOut.getTime() - checkIn.getTime();
 
-    let dayDiff = diff / (1000 * 3600 * 24);
+    const dayDiff = diff / (1000 * 3600 * 24);
 
     if (selectedRoom) {
-      let price = dayDiff * selectedRoom?.Price;
+      const price = dayDiff * selectedRoom?.Price;
       setTotalPrice(price);
     }
   };
 
   const getHotelDetail = async (hotelID: number) => {
     setLoading(true);
-    const url = `http://localhost:8080/api/get_hotel_detail/?id=${hotelID}`;
+    const url = `${API_BASE_URL}/api/get_hotel_detail/?id=${hotelID}`;
     try {
       const response = await fetch(url, {
         method: "GET",

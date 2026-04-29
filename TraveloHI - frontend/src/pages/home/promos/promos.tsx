@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { IPromo } from "../../../interfaces/promo-interface";
-import PromoCard from "../../../components/promo-card/promo-card";
 import styles from "./promo.module.scss";
 import Button from "../../../components/button/button";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { useTheme } from "../../../context/theme-context";
 import { colors } from "../../../components/colors";
 import PromoCardHome from "./promo-card-home/promo-card-home";
-import Loading from "../../../components/loader/loader";
 import Text from "../../../components/text/text";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function Promos() {
   const [promos, setPromos] = useState<IPromo[]>([]);
@@ -42,7 +41,7 @@ export default function Promos() {
   const getActivePromo = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/get_all_promos", {
+      const response = await fetch(`${API_BASE_URL}/api/get_all_promos`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

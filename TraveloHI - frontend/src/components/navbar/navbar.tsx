@@ -7,27 +7,20 @@ import flag_us from "../../assets/image/flag_us.png";
 import Button from "../button/button";
 import ToggleTheme from "../themes/toggle-theme";
 import { useTheme } from "../../context/theme-context";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/user-context";
-import Textfield from "../textfield/textfield";
-import Container from "../container/container";
-import { useFetch } from "../../context/fetch-context";
-import debounce from "lodash.debounce";
-import SearchNavbar from "./search-hotel-navbar/search-hotel-navbar";
 import {
   ADDITIONAL_MENU_WITH_EXTRA_FLIGHT_NAVBAR,
   ADDITIONAL_MENU_WITH_EXTRA_HOTEL_NAVBAR,
 } from "../../settings/menu-settings";
-import { IoCameraOutline } from "react-icons/io5";
 import Camera from "../camera/camera";
 import SearchHotelNavbar from "./search-hotel-navbar/search-hotel-navbar";
-import SearchFlightPage from "../../pages/search-flight/search-flight";
 import SearchFlightNavbar from "./search-flight-navbar/search-flight-navbar";
 import IconText from "../icon-text/icon-text";
 import { CiWallet } from "react-icons/ci";
 import { colors } from "../colors";
 import { PiCreditCardLight } from "react-icons/pi";
-import Text from "../text/text";
+import { API_BASE_URL } from "../../config/config";
 
 export default function NavBar() {
   // main navbar var
@@ -70,7 +63,7 @@ export default function NavBar() {
   }, [user?.ID]);
 
   const getTotalActiveTickets = async () => {
-    const url = `http://localhost:8080/api/get_total_active_tickets/?id=${user?.ID}`;
+    const url = `${API_BASE_URL}/api/get_total_active_tickets/?id=${user?.ID}`;
     try {
       const response = await fetch(url, {
         method: "GET",

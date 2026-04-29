@@ -10,7 +10,7 @@ import Textfield from "../../../../components/textfield/textfield";
 import Text from "../../../../components/text/text";
 import styles from "./selected-promo.module.scss";
 import { useSnackbar } from "../../../../context/snackbar-context";
-import { uploadImage } from "../../../../config/config";
+import { API_BASE_URL, uploadImage } from "../../../../config/config";
 import { useNavigate } from "react-router-dom";
 
 export default function SelectedPromo({
@@ -67,7 +67,7 @@ export default function SelectedPromo({
   };
 
   const handleUpdatePromo = async () => {
-    const response = await fetch("http://localhost:8080/api/update_promo", {
+    const response = await fetch(`${API_BASE_URL}/api/update_promo`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

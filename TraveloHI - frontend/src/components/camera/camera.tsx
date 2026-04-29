@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./camera.module.scss";
 import { useTheme } from "../../context/theme-context";
-import { IoCameraOutline } from "react-icons/io5";
 import { colors } from "../colors";
 import { MdOutlineCameraAlt } from "react-icons/md";
 

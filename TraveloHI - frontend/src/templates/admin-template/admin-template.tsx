@@ -8,7 +8,6 @@ import { useUser } from "../../context/user-context";
 import AdminMainTemplate from "../admin-main-template/admin-main-template";
 import Text from "../../components/text/text";
 import { ADMIN_MENU } from "../../settings/admin-settings";
-import Loading from "../../components/loader/loader";
 
 export default function AdminTemplate({ children }: IChildren) {
   const [active, setActive] = useState<string | undefined>("");

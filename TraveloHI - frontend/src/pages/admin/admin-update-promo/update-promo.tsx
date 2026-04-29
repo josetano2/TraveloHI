@@ -4,6 +4,7 @@ import Text from "../../../components/text/text";
 import { IPromo } from "../../../interfaces/promo-interface";
 import styles from "./update-promo.module.scss";
 import SelectedPromo from "./selected-promo/selected-promo";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminUpdatePromoPage() {
   const [promoSelected, setPromoSelected] = useState(false);
@@ -12,7 +13,7 @@ export default function AdminUpdatePromoPage() {
   const [selectedPromo, setSelectedPromo] = useState<IPromo>();
 
   const getPromos = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_promos", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_promos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

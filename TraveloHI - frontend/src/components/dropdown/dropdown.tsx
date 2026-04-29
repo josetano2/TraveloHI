@@ -2,8 +2,6 @@ import { useState } from "react";
 import styles from "./dropdown.module.scss";
 import Text from "../text/text";
 import { colors } from "../colors";
-import Container from "../container/container";
-import { FaChevronDown } from "react-icons/fa";
 
 interface IDropdown {
   menus: string[];

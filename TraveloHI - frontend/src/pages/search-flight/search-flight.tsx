@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MainTemplate from "../../templates/main-template/main-template";
 import { useLocation } from "react-router-dom";
+import { API_BASE_URL } from "../../config/config";
 
 export default function SearchFlightPage() {
   const { search } = useLocation();
@@ -12,7 +13,7 @@ export default function SearchFlightPage() {
 
   const getSearchFlight = async () => {
     console.log(origin, destination, departureDate);
-    const url = `http://localhost:8080/api/search_flights/?origin=${origin}&destination=${destination}&departureDate=${departureDate}`;
+    const url = `${API_BASE_URL}/api/search_flights/?origin=${origin}&destination=${destination}&departureDate=${departureDate}`;
     try {
       const response = await fetch(url, {
         method: "GET",

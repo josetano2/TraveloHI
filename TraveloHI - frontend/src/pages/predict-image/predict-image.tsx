@@ -3,6 +3,7 @@ import styles from "./predict-image.module.scss";
 import Button from "../../components/button/button";
 import MainTemplate from "../../templates/main-template/main-template";
 import { useNavigate } from "react-router-dom";
+import { PREDICT_API_URL } from "../../config/config";
 
 export default function PredictImagePage() {
   const [file, setFile] = useState<File>();
@@ -27,7 +28,7 @@ export default function PredictImagePage() {
       formData.append("file", file);
 
       try {
-        const response = await fetch("http://localhost:5000/predict", {
+        const response = await fetch(`${PREDICT_API_URL}/predict`, {
           method: "POST",
           body: formData,
         });

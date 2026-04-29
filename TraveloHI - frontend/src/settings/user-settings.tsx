@@ -1,8 +1,6 @@
 import { IoCartOutline } from "react-icons/io5";
 import { ISiderbar } from "../interfaces/sidebar-interface";
 import { VscBook } from "react-icons/vsc";
-import { MdFlight } from "react-icons/md";
-import { LiaHotelSolid } from "react-icons/lia";
 import { GoGear } from "react-icons/go";
 import { IoIosPower } from "react-icons/io";
 import { PiCreditCardLight } from "react-icons/pi";

@@ -1,6 +1,5 @@
 import styles from "./icon-text.module.scss"
 import Text from "../text/text";
-import { colors } from "../colors";
 
 interface IRoomDetailIconText {
   icon: JSX.Element;

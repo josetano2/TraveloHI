@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import MainTemplate from "../../templates/main-template/main-template";
 import styles from "./search-hotel.module.scss";
-import { useFetch } from "../../context/fetch-context";
 import { useEffect, useState } from "react";
 import Loading from "../../components/loader/loader";
 import Container from "../../components/container/container";
@@ -12,6 +11,7 @@ import Star from "../../components/star/star";
 import Checkbox from "../../components/checkbox/checkbox";
 import HotelCard from "../../components/hotel-card/hotel-card";
 import Dropdown from "../../components/dropdown/dropdown";
+import { API_BASE_URL } from "../../config/config";
 
 export default function SearchHotelPage() {
   const [minPrice, setMinPrice] = useState("0");
@@ -44,10 +44,10 @@ export default function SearchHotelPage() {
 
   useEffect(() => {
     if (data && data.length > 0) {
-      let min = minPrice === "" ? 0 : parseInt(minPrice);
-      let max = maxPrice === "" ? 10000000 : parseInt(maxPrice);
-      let rating = selectedRating.length > 0 ? selectedRating : [1, 2, 3, 4, 5];
-      let listOfFacilities =
+      const min = minPrice === "" ? 0 : parseInt(minPrice);
+      const max = maxPrice === "" ? 10000000 : parseInt(maxPrice);
+      const rating = selectedRating.length > 0 ? selectedRating : [1, 2, 3, 4, 5];
+      const listOfFacilities =
         selectedFacilities.length > 0 ? selectedFacilities : facilityArr;
       const filteredData = data
         .filter((hotel) => hotel.MinPrice! >= min && hotel.MinPrice! <= max)
@@ -88,7 +88,7 @@ export default function SearchHotelPage() {
 
   const searchHotels = async (stuff: string | null) => {
     setLoading(true);
-    const url = `http://localhost:8080/api/search_hotels/?search=${stuff}`;
+    const url = `${API_BASE_URL}/api/search_hotels/?search=${stuff}`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -112,7 +112,7 @@ export default function SearchHotelPage() {
   const getFacilities = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/facility", {
+      const response = await fetch(`${API_BASE_URL}/api/facility`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

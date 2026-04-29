@@ -6,12 +6,13 @@ import Container from "../../../components/container/container";
 import styles from "./manage-user.module.scss";
 import { colors } from "../../../components/colors";
 import Button from "../../../components/button/button";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminManageUserPage() {
   const [users, setUsers] = useState<IUser[]>([]);
 
   const getAllUsers = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_users", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_users`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -28,7 +29,7 @@ export default function AdminManageUserPage() {
 
   const handleBan = async (id: number) => {
     const response = await fetch(
-      `http://localhost:8080/api/ban_user/?id=${id}`,
+      `${API_BASE_URL}/api/ban_user/?id=${id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

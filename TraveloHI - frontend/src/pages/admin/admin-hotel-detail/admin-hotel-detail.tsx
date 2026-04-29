@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "../../../context/fetch-context";
 import AdminTemplate from "../../../templates/admin-template/admin-template";
-import Loading from "../../../components/loader/loader";
 import Text from "../../../components/text/text";
 import styles from "./admin-hotel-detail.module.scss";
 import Textfield from "../../../components/textfield/textfield";
@@ -10,6 +9,7 @@ import Checkbox from "../../../components/checkbox/checkbox";
 import { uploadImage } from "../../../config/config";
 import Button from "../../../components/button/button";
 import Container from "../../../components/container/container";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminHotelDetailPage() {
   const [isSelected, setIsSelected] = useState(false);
@@ -65,7 +65,7 @@ export default function AdminHotelDetailPage() {
   const handleSave = async (e: any) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8080/api/add_room_detail", {
+    const response = await fetch(`${API_BASE_URL}/api/add_room_detail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

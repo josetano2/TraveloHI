@@ -7,7 +7,6 @@ import { LiaHotelSolid } from "react-icons/lia";
 import { MdFlight } from "react-icons/md";
 import SearchFieldHotel from "./search-hotel/search-field-hotel";
 import SearchFieldFlight from "./search-flight/search-field-flight";
-import debounce from "lodash.debounce";
 
 export default function Search() {
   const [active, setActive] = useState("hotels");

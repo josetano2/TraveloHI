@@ -14,6 +14,7 @@ import { useUser } from "../../context/user-context";
 import { useSnackbar } from "../../context/snackbar-context";
 import Snackbar, { SnackbarType } from "../../components/snackbar/snackbar";
 import Loading from "../../components/loader/loader";
+import { API_BASE_URL } from "../../config/config";
 
 export default function OTPPage() {
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ export default function OTPPage() {
       return;
     }
 
-    const response = await fetch("http://localhost:8080/api/send_otp", {
+    const response = await fetch(`${API_BASE_URL}/api/send_otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +71,7 @@ export default function OTPPage() {
       handleSnackbar("Captcha must be filled!", SnackbarType.Error);
       return;
     }
-    const response = await fetch("http://localhost:8080/api/verify_otp", {
+    const response = await fetch(`${API_BASE_URL}/api/verify_otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

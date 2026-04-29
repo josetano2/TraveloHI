@@ -16,7 +16,6 @@ import AdminSendNewsletterPage from "../pages/admin/send-newsletter/send-newslet
 import AdminInsertPromoPage from "../pages/admin/admin-insert-promo/admin-insert-promo";
 import AdminUpdatePromoPage from "../pages/admin/admin-update-promo/update-promo";
 import AdminAddRoutePage from "../pages/admin/admin-add-route/admin-add-route";
-import AdminAddAirlineRoutePage from "../pages/admin/admin-add-airline-route/admin-add-airline-route";
 import AdminAddFlightPage from "../pages/admin/admin-add-flight/admin-add-flight";
 import SearchFlightPage from "../pages/search-flight/search-flight";
 import FlightDetailPage from "../pages/flight-detail/flight-detail";

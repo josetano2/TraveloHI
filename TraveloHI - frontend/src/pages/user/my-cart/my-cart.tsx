@@ -20,6 +20,7 @@ import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
 import { BUSINESS_CLASS_MULTIPLIER } from "../../flight-detail/flight-detail";
 import { PAYMENT_METHOD } from "../../../settings/menu-settings";
 import DefaultDropdown from "../../../components/default-dropdown/default-dropdown";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function MyCartPage() {
   const { user } = useUser();
@@ -74,9 +75,9 @@ export default function MyCartPage() {
       const checkInFormat = new Date(hotel.CheckInDate);
       const checkOutFormat = new Date(hotel.CheckOutDate);
 
-      let diff = checkOutFormat.getTime() - checkInFormat.getTime();
+      const diff = checkOutFormat.getTime() - checkInFormat.getTime();
 
-      let dayDiff = diff / (1000 * 3600 * 24);
+      const dayDiff = diff / (1000 * 3600 * 24);
 
       tempPrice += dayDiff * hotel.RoomDetail.Price;
     });
@@ -103,7 +104,7 @@ export default function MyCartPage() {
 
   const getCart = async () => {
     setLoading(true);
-    const url = `http://localhost:8080/api/get_cart/?id=${user?.ID}`;
+    const url = `${API_BASE_URL}/api/get_cart/?id=${user?.ID}`;
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -136,7 +137,7 @@ export default function MyCartPage() {
 
   const handleDateUpdate = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/update_reservation_date",
+      `${API_BASE_URL}/api/update_reservation_date`,
       {
         method: "PUT",
         headers: {
@@ -164,7 +165,7 @@ export default function MyCartPage() {
   };
 
   const handleRemoveHotelFromCart = async (hotelCart: IHotelCart) => {
-    const url = `http://localhost:8080/api/remove_hotel_from_cart/?id=${hotelCart.ID}`;
+    const url = `${API_BASE_URL}/api/remove_hotel_from_cart/?id=${hotelCart.ID}`;
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -183,7 +184,7 @@ export default function MyCartPage() {
   };
 
   const handleRemoveFlightFromCart = async (flight: IFlightCart) => {
-    const url = `http://localhost:8080/api/remove_flight_from_cart/?flight_cart_id=${flight?.ID}&ticket_id=${flight.TicketID}&seat_id=${flight.Ticket.SeatID}`;
+    const url = `${API_BASE_URL}/api/remove_flight_from_cart/?flight_cart_id=${flight?.ID}&ticket_id=${flight.TicketID}&seat_id=${flight.Ticket.SeatID}`;
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -202,7 +203,7 @@ export default function MyCartPage() {
   };
 
   const handleCheckPromo = async () => {
-    const response = await fetch("http://localhost:8080/api/check_promo", {
+    const response = await fetch(`${API_BASE_URL}/api/check_promo`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -227,7 +228,7 @@ export default function MyCartPage() {
   };
 
   const handlePayWithWallet = async () => {
-    const response = await fetch("http://localhost:8080/api/pay_with_wallet", {
+    const response = await fetch(`${API_BASE_URL}/api/pay_with_wallet`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -254,7 +255,7 @@ export default function MyCartPage() {
   };
   const handlePayWithCreditCard = async () => {
     const response = await fetch(
-      "http://localhost:8080/api/pay_with_credit_card",
+      `${API_BASE_URL}/api/pay_with_credit_card`,
       {
         method: "PUT",
         headers: {
@@ -289,7 +290,7 @@ export default function MyCartPage() {
   };
 
   const getAllBanks = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_banks", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_banks`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -307,12 +308,12 @@ export default function MyCartPage() {
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
 
-    let diff = checkOut.getTime() - checkIn.getTime();
+    const diff = checkOut.getTime() - checkIn.getTime();
 
-    let dayDiff = diff / (1000 * 3600 * 24);
+    const dayDiff = diff / (1000 * 3600 * 24);
 
     if (selectedRoom) {
-      let price = dayDiff * selectedRoom?.Price;
+      const price = dayDiff * selectedRoom?.Price;
       setTotalPriceHotel(price);
     }
   };
@@ -394,9 +395,9 @@ export default function MyCartPage() {
                   const checkOutFormat = new Date(hotel.CheckOutDate);
                   const today = new Date();
                   const status = checkInFormat > today ? "Upcoming" : "Expired";
-                  let diff = checkOutFormat.getTime() - checkInFormat.getTime();
-                  let dayDiff = diff / (1000 * 3600 * 24);
-                  let price = dayDiff * hotel.RoomDetail.Price;
+                  const diff = checkOutFormat.getTime() - checkInFormat.getTime();
+                  const dayDiff = diff / (1000 * 3600 * 24);
+                  const price = dayDiff * hotel.RoomDetail.Price;
 
                   return (
                     <Container key={idx}>

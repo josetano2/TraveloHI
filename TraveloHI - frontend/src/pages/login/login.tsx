@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/theme-context";
 import { useUser } from "../../context/user-context";
 import Snackbar, { SnackbarType } from "../../components/snackbar/snackbar";
-import { ADMIN_MENU } from "../../settings/admin-settings";
 import Loading from "../../components/loader/loader";
 import { useSnackbar } from "../../context/snackbar-context";
 
@@ -56,6 +55,11 @@ export default function LoginPage() {
   const onCaptchaChange = (e: any) => {
     setCaptchaValue(e);
   };
+
+  const [image, setImage] = useState('')
+  const getDetail = () => {
+    // LOGIC
+  }
 
   if (loading) return <Loading type={3} />
 

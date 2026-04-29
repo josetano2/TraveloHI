@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Container from "../../../components/container/container";
 import Text from "../../../components/text/text";
 import AdminTemplate from "../../../templates/admin-template/admin-template";
-import styles from "./admin-add-flight.module.scss";
 import DefaultDropdown from "../../../components/default-dropdown/default-dropdown";
 import { colors } from "../../../components/colors";
 import Textfield from "../../../components/textfield/textfield";
 import Button from "../../../components/button/button";
 import { useSnackbar } from "../../../context/snackbar-context";
 import Snackbar, { SnackbarType } from "../../../components/snackbar/snackbar";
+import { API_BASE_URL } from "../../../config/config";
 
 export default function AdminAddFlightPage() {
   // select airline
@@ -53,7 +53,7 @@ export default function AdminAddFlightPage() {
   // functions
 
   const getAllAirlines = async () => {
-    const response = await fetch("http://localhost:8080/api/get_all_airlines", {
+    const response = await fetch(`${API_BASE_URL}/api/get_all_airlines`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -69,7 +69,7 @@ export default function AdminAddFlightPage() {
   };
 
   const getAvailableRoutes = async (stuff: string) => {
-    const url = `http://localhost:8080/api/get_available_airline_routes/?name=${stuff}`;
+    const url = `${API_BASE_URL}/api/get_available_airline_routes/?name=${stuff}`;
     const response = await fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -86,7 +86,7 @@ export default function AdminAddFlightPage() {
   };
 
   const getAirlineAirplane = async (stuff: string) => {
-    const url = `http://localhost:8080/api/get_airline_airplane/?airline=${stuff}`;
+    const url = `${API_BASE_URL}/api/get_airline_airplane/?airline=${stuff}`;
     const response = await fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -108,7 +108,7 @@ export default function AdminAddFlightPage() {
   }, []);
 
   const handleSubmit = async () => {
-    const response = await fetch("http://localhost:8080/api/add_flight", {
+    const response = await fetch(`${API_BASE_URL}/api/add_flight`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
