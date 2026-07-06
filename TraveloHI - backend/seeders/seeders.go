@@ -8,4 +8,8 @@ func Seeders() {
 	AirlineSeeders()
 	AirplaneSeeders()
 	BankSeeders()
+	FlightRouteSeeders()
+	FlightSeeders()
+	HotelSeeders()
+	PromoSeeders()
 }
